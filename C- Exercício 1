@@ -1,0 +1,43 @@
+Exercício 3: Dinheiro (versão fácil)
+
+
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+
+int main(void)
+{
+
+    float n;
+    int valor25;
+    int valor10;
+    int valor05;
+    int valor01;
+    int total;
+
+    do
+    {
+        n = get_float("Troco devido: ");
+    }
+    while(n < 0);
+
+
+    int troco = round(n * 100);
+
+    valor25 = troco / 25;
+    troco = troco - (valor25 * 25);
+
+    valor10 = troco / 10;
+    troco = troco - (valor10 * 10);
+
+    valor05 = troco / 05;
+    troco = troco - (valor05 * 05);
+
+    valor01 = troco / 1;
+    troco = troco - (valor01 * 1);
+
+    total = valor25 + valor10 + valor05 + valor01;
+
+    printf("Total de moedas: %i\n", total);
+}
